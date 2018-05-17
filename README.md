@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://h5xuhong.oss-cn-hongkong.aliyuncs.com/8266%E5%9B%BE%E7%89%87/esp32.png" width="700px" height="380px" alt="Banner" />
+  <img src="https://h5xuhong.oss-cn-hongkong.aliyuncs.com/8266%E5%9B%BE%E7%89%87/esp32.png" width="700px" height="400px" alt="Banner" />
 </p>
  
 ### esp32各种好玩的Demo和资料收集栏

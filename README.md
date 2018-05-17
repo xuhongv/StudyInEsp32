@@ -36,3 +36,8 @@
 |ESP32 接入阿里智能的Demo|https://github.com/espressif/esp32-alink-demo|乐鑫官方|
 |ESP32 的MQTT和websocket的实现|https://github.com/tuanpmt/espmqtt||
 |国人已跑通的ESP32好玩的DEMO|https://github.com/Afantor/esp32-tutorial-esp-idf||
+|ESP32 驱动 `ws2812b`|https://github.com/MartyMacGyver/ESP32-Digital-RGB-LED-Drivers||
+|ESP32 驱动 `ws2812b`七彩灯|https://github.com/FozzTexx/ws2812-demo||
+|ESP32 驱动2.4G模块 `nrf24l`|https://github.com/nkolban/esp32-snippets/tree/master/hardware/nrf24/utility/ESP_IDF||
+
+

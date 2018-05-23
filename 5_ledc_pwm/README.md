@@ -5,3 +5,6 @@
 
 - pwm 使用
 
+- 接线图：
+
+ ![](https://i.imgur.com/LO0PjTm.png)

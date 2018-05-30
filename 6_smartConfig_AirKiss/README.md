@@ -1,18 +1,12 @@
-# smartconfig Example
+# smartconfig 
 
-This example shows how ESP32 connects to AP with ESPTOUCH. Example does the following steps:
+这是个一个`esp32`连接路由器热点的代码示范:
 
-* Download ESPTOUCH APP from app store. [Android source code](https://github.com/EspressifApp/EsptouchForAndroid) and [iOS source code](https://github.com/EspressifApp/EsptouchForIOS) is available.
+* 确保您的路由器是 2.4GHz.
 
-* Compile this example and upload it to an ESP32.
 
-* Make sure your phone connect to target AP (2.4GHz).
+### 串口打印：
 
-* Open ESPTOUCH app and input password. There will be success message after few sec.
-
-### Example output
-
-Here is an example of smartconfig console output.
 ```
 I (372) wifi: mode : sta (24:0a:c4:00:44:86)
 I (422) smartconfig: SC version: V2.6.6

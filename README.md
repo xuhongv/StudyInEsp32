@@ -26,6 +26,7 @@
 |2_blink_led|利用`rtos`的延时函数时隔1s闪烁LED灯|-------|
 |3_gpio_interrupt|`GPIO`的下降沿和上升沿中断的使用，以及高低电平的输出|https://blog.csdn.net/xh870189248/article/details/80354565|
 |4_timer|体会esp32的强大的定时器功能， 实现定时2s闪烁一盏LED灯。|https://blog.csdn.net/xh870189248/article/details/80395289|
+|6_smartConfig_AirKiss|smartConfig和微信airKiss在esp32的实现，一键配网轻松快捷连接路由器|https://blog.csdn.net/xh870189248/article/details/80430077|
  
 ***************************************************
 ### ③、esp32各种好玩的Demo和资料收集栏：

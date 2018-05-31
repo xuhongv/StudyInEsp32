@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.453287207/IDF_PATH/delimiter=;
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.453287207/IDF_PATH/operation=append
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.453287207/IDF_PATH/value=E\:\\Esp32Study\\ESP32IDE\\msys32\\home\\Administrator\\esp-idf
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.453287207/PATH/delimiter=;
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.453287207/PATH/operation=replace
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.453287207/PATH/value=E\:\\Esp32Study\\ESP32IDE\\msys32\\usr\\bin;E\:\\Esp32Study\\ESP32IDE\\msys32\\opt\\xtensa-esp32-elf\\bin;E\:\\Esp32Study\\ESP32IDE\\msys32\\mingw32\\bin;C\:/Program Files/Java/jre1.8.0_161/bin/server;C\:/Program Files/Java/jre1.8.0_161/bin;C\:/Program Files/Java/jre1.8.0_161/lib/amd64;E\:\\203CSARM_SDK\\bin;G\:\\203CS_CODE\\bin;C\:\\ProgramData\\Oracle\\Java\\javapath;C\:\\windows\\system32;C\:\\windows;C\:\\windows\\System32\\Wbem;C\:\\windows\\System32\\WindowsPowerShell\\v1.0\\;C\:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C\:\\Program Files\\Java\\jdk1.8.0_161\\bin;G\:\\Git\\cmd;C\:\\WINDOWS\\system32;C\:\\WINDOWS;C\:\\WINDOWS\\System32\\Wbem;C\:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C\:\\Program Files\\SourceGear\\Common\\DiffMerge\\;E\:\\Esp32Study\\ESP8266IDE\\cywin\\cygwin\\bin\\;E\:\\Esp32Study\\ESP8266IDE\\xtensa-lx106-elf\\bin\\;C\:\\Users\\Administrator\\AppData\\Local\\Microsoft\\WindowsApps;C\:\\Users\\Administrator\\AppData\\Local\\GitHubDesktop\\bin;E\:\\Esp32Study\\ESP32IDE\\eclipse;
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.453287207/append=true
+environment/project/cdt.managedbuild.toolchain.gnu.cross.base.453287207/appendContributed=true

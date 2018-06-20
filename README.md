@@ -27,6 +27,9 @@
 |3_gpio_interrupt|`GPIO`的下降沿和上升沿中断的使用，以及高低电平的输出|https://blog.csdn.net/xh870189248/article/details/80354565|
 |4_timer|体会esp32的强大的定时器功能， 实现定时2s闪烁一盏LED灯。|https://blog.csdn.net/xh870189248/article/details/80395289|
 |6_smartConfig_AirKiss|smartConfig和微信airKiss在esp32的实现，一键配网轻松快捷连接路由器|https://blog.csdn.net/xh870189248/article/details/80430077|
+|7_Key_Short_Long|利用GPIO中断做一个按键的短按和长按的回调事件，再也无须担心触发源。|https://blog.csdn.net/xh870189248/article/details/80524714|
+|8_udp_client_server|实现本地 UDP 客户端和服务端角色，在局域网内实现通讯。|https://blog.csdn.net/xh870189248/article/details/80737111|
+
  
 ***************************************************
 ### ③、esp32各种好玩的Demo和资料收集栏：

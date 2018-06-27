@@ -29,7 +29,7 @@
 |6_smartConfig_AirKiss|smartConfig和微信airKiss在esp32的实现，一键配网轻松快捷连接路由器|https://blog.csdn.net/xh870189248/article/details/80430077|
 |7_Key_Short_Long|利用GPIO中断做一个按键的短按和长按的回调事件，再也无须担心触发源。|https://blog.csdn.net/xh870189248/article/details/80524714|
 |8_udp_client_server|实现本地 UDP 客户端和服务端角色，在局域网内实现通讯。|https://blog.csdn.net/xh870189248/article/details/80737111|
-|9_tcpp_client_server|实现本地 TCP 客户端和服务端角色，实现断电重连。|https://blog.csdn.net/xh870189248/article/details/80817529|
+|9_tcp_client_server|实现本地 TCP 客户端和服务端角色，实现断电重连。|https://blog.csdn.net/xh870189248/article/details/80817529|
  
 ***************************************************
 ### ③、esp32各种好玩的Demo和资料收集栏：

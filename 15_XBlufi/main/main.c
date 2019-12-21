@@ -1,10 +1,9 @@
 /*
  * @Author: your name
  * @Date: 2019-11-26 11:40:54
- * @LastEditTime: 2019-12-09 19:36:01
- * @LastEditors: Please set LastEditors
+ * @LastEditTime : 2019-12-21 10:56:33
+ * @LastEditors  : Please set LastEditors
  * @Description: In User Settings Edit
- * @FilePath: \esp-iot-solution\examples\empty_project\main\main.c
  */
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -14,6 +13,7 @@
 #include "freertos/semphr.h"
 #include "nvs_flash.h"
 #include "esp_wifi.h"
+#include "esp_wifi_types.h"
 #include "esp_bt.h"
 #include "esp_blufi_api.h"
 #include "esp_event_loop.h"
@@ -26,6 +26,7 @@
 static const char *TAG = "iot_blufi_test";
 static EventGroupHandle_t s_wifi_event_group;
 static void TaskXBlufiListener(void *parm);
+bool flagBlufiMode = true; //用来标致是否处于配网模式
 
 static esp_err_t event_handler(void *ctx, system_event_t *event)
 {
@@ -36,23 +37,31 @@ static esp_err_t event_handler(void *ctx, system_event_t *event)
     {
     case SYSTEM_EVENT_STA_START:
         ESP_LOGI(TAG, "SYSTEM_EVENT_STA_START");
-        esp_wifi_connect();
+        esp_wifi_set_auto_connect(false);
         break;
 
     case SYSTEM_EVENT_STA_GOT_IP:
         ESP_LOGI(TAG, "SYSTEM_EVENT_STA_GOT_IP");
-        XBlufi_notify_got_ip();
+        XBlufi_notify_got_ip(); //通知获取到了ip
         break;
     case SYSTEM_EVENT_STA_CONNECTED:
         ESP_LOGI(TAG, "SYSTEM_EVENT_STA_CONNECTED");
-        XBlufi_notify_connected(event->event_info.connected.bssid);
+        XBlufi_notify_connected(event->event_info.connected.bssid); //连接成功路由器，发送路由器的mac地址
         break;
 
     case SYSTEM_EVENT_STA_DISCONNECTED:
     {
         system_event_sta_disconnected_t *disconnected = &event->event_info.disconnected;
-        ESP_LOGI(TAG, "SYSTEM_EVENT_STA_DISCONNECTED, reason: %d", disconnected->reason);
-        esp_wifi_connect();
+        ESP_LOGI(TAG, "flagBlufiMode: %d ,SYSTEM_EVENT_STA_DISCONNECTED, reason: %d", flagBlufiMode, disconnected->reason);
+        //这里处理为了区别是否密码错误而断开非配网指令要求断开连接
+        if (flagBlufiMode && (disconnected->reason == WIFI_REASON_CONNECTION_FAIL 
+        || disconnected->reason == WIFI_REASON_4WAY_HANDSHAKE_TIMEOUT ))
+        {
+            esp_wifi_connect();
+            XBlufi_notify_connect_fail();
+            flagBlufiMode = false;
+        }
+
         break;
     }
 
@@ -106,20 +115,24 @@ static void TaskXBlufiListener(void *parm)
                 break;
             case xBlufi_MSG_TYPE_GET_SSID: // 成功获取路由器名字
                 ESP_LOGI(TAG, " get ssid[len:%d]: %s", msg.dataLen, (char *)msg.data);
+                memset(wifi_config.sta.ssid, 0, sizeof(wifi_config.sta.ssid));
                 memcpy(wifi_config.sta.ssid, (char *)msg.data, msg.dataLen);
                 break;
             case xBlufi_MSG_TYPE_GET_PASSWORD: // 成功获取路由器密码
                 ESP_LOGI(TAG, " get password[len:%d]: %s", msg.dataLen, (char *)msg.data);
+                memset(wifi_config.sta.password, 0, sizeof(wifi_config.sta.password));
                 memcpy(wifi_config.sta.password, (char *)msg.data, msg.dataLen);
                 break;
             case xBlufi_MSG_TYPE_RECIEVE_CUSTON_DATA: //接收到了自定义的数据
             {
                 ESP_LOGI(TAG, " get custon data[len:%d]: %s", msg.dataLen, (char *)msg.data);
+
                 //把接收到的自定义数据，原封不住返回回去给手机
                 XBlufi_notify_send_custom_data((uint8_t *)msg.data, msg.dataLen);
                 //如果发送是 stop 则断开连接
                 if (strcmp("stop", (char *)msg.data) == 0)
                 {
+                    flagBlufiMode = false;
                     xBlufi_stop_all();
                     vTaskDelete(NULL);
                 }
@@ -127,14 +140,21 @@ static void TaskXBlufiListener(void *parm)
             }
 
             case xBlufi_MSG_TYPE_REQ_CONNECT_TO_AP: //手机要求接入热点
+
+                ESP_LOGI(TAG, " start connect , get ssid: %s", (char *)wifi_config.sta.ssid);
+                ESP_LOGI(TAG, " start connect , get password: %s", (char *)wifi_config.sta.password);
+
                 //连接路由器
                 ESP_ERROR_CHECK(esp_wifi_disconnect());
                 ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_config));
                 ESP_ERROR_CHECK(esp_wifi_connect());
+                flagBlufiMode = true;
                 break;
             case xBlufi_MSG_TYPE_REQ_DISCONNECT_TO_AP: //手机要求断开当前热点的接入
                 esp_wifi_disconnect();
+
                 break;
+
             default:
                 break;
             }

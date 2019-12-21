@@ -2,8 +2,8 @@
  * @Description: wechat xBlufi to net
  * @Author: 徐宏 xuhong
  * @Date: 2019-10-03 16:36:21
- * @LastEditTime: 2019-12-09 19:29:46
- * @LastEditors: Please set LastEditors
+ * @LastEditTime : 2019-12-20 11:15:47
+ * @LastEditors  : Please set LastEditors
  */
 #ifndef X_xBlufi_H_
 #define X_xBlufi_H_
@@ -59,11 +59,18 @@ esp_err_t xBlufi_start();
 void XBlufi_notify_got_ip(void);
 
 /**
- * @description: 
- * @param {type} 
+ * @description: 通知连接成功
+ * @param {type} 需要路由器的ssid
  * @return: 
  */
 void XBlufi_notify_connected(uint8_t *bssid);
+
+/**
+ * @description: 通知连接失败
+ * @param {type} 
+ * @return: 
+ */
+void XBlufi_notify_connect_fail(void);
 
 /**
      * @description: 结束 esp32 微信配网配置和近场发现

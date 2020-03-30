@@ -1,0 +1,11 @@
+# Override some defaults in mesh application project.
+
+#
+# Serial flasher config
+#
+CONFIG_ESPTOOLPY_FLASHSIZE_4MB=y
+
+#
+# Partition Table
+#
+CONFIG_PARTITION_TABLE_CUSTOM=y

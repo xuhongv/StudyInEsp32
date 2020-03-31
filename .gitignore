@@ -50,3 +50,10 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Example project files
+# Example project files
+**/sdkconfig
+**/sdkconfig.old
+**/build
+

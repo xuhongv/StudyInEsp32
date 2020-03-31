@@ -495,7 +495,6 @@ esp_err_t iot_led_regist_channel(ledc_channel_t channel, gpio_num_t gpio_num)
 
     ret = ledc_channel_config(&ledc_ch_config);
     MDF_ERROR_CHECK(ret != ESP_OK, ret, "LEDC channel configuration");
-
     return ESP_OK;
 }
 

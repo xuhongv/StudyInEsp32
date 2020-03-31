@@ -137,7 +137,7 @@ esp_err_t light_driver_set_switch(bool status);
 
 /**@{*/
 /**
- * @brief  Set the status of the light
+ * @brief  Get the status of the light
  */
 uint16_t light_driver_get_hue();
 uint8_t light_driver_get_saturation();

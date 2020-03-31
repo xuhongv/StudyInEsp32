@@ -4,7 +4,7 @@ menu "light driver config"
 config LIGHT_GPIO_RED
     int "Light red pin GPIO number"
     range 0 33
-    default 4
+    default 36
     help
         There are more enumerations like that
         up to GPIO39, excluding GPIO20, GPIO24 and GPIO28..31.
@@ -14,7 +14,7 @@ config LIGHT_GPIO_RED
 config LIGHT_GPIO_GREEN
     int "Light green pin GPIO number"
     range 0 33
-    default 16
+    default 39
     help
         There are more enumerations like that
         up to GPIO39, excluding GPIO20, GPIO24 and GPIO28..31.
@@ -24,7 +24,7 @@ config LIGHT_GPIO_GREEN
 config LIGHT_GPIO_BLUE
     int "Light blue pin GPIO number"
     range 0 33
-    default 5
+    default 34
     help
         There are more enumerations like that
         up to GPIO39, excluding GPIO20, GPIO24 and GPIO28..31.
@@ -44,7 +44,7 @@ config LIGHT_GPIO_COLD
 config LIGHT_GPIO_WARM
     int "Light warm color pin GPIO number"
     range 0 33
-    default 19
+    default 22
     help
         There are more enumerations like that
         up to GPIO39, excluding GPIO20, GPIO24 and GPIO28..31.

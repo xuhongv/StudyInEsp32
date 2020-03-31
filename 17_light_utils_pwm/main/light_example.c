@@ -18,6 +18,29 @@
 #include "esp_log.h"
 
 /**
+ * @description:  HSV模型设置: 参考 http://www.yuangongju.com/color
+ * @param {type} 
+ * @return: 
+ */
+static void Task_set_hsv(void *parm)
+{
+    while (1)
+    {
+        light_driver_set_hsv(0, 100, 100); /**< red */
+        vTaskDelay(2000 / portTICK_PERIOD_MS);
+        light_driver_set_hsv(240, 100, 100); /**< blue */
+        vTaskDelay(2000 / portTICK_PERIOD_MS);
+        light_driver_set_hsv(120, 100, 100); /**< green */
+        vTaskDelay(2000 / portTICK_PERIOD_MS);
+        light_driver_set_hsv(270, 98, 99); /**< color #8306fc */
+        vTaskDelay(2000 / portTICK_PERIOD_MS);
+        light_driver_set_hsv(60, 100, 100); /**<yellow*/
+        vTaskDelay(2000 / portTICK_PERIOD_MS);
+    }
+    vTaskDelete(NULL);
+}
+
+/**
  * @description:  RGB光设置
  * @param {type} 
  * @return: 
@@ -85,8 +108,7 @@ static void Task_brightness_temperature(void *parm)
     light_driver_set_color_temperature(50);
     vTaskDelay(1500 / portTICK_PERIOD_MS);
 
-    
-    xTaskCreate(Task_set_rgb, "Task_set_rgb", 1024 * 2, NULL, 8, NULL); // 创建任务
+    xTaskCreate(Task_set_hsv, "Task_set_hsv", 1024 * 2, NULL, 8, NULL); // 创建任务
 
     vTaskDelete(NULL);
 }

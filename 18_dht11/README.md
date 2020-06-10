@@ -1,22 +1,17 @@
-- esp-idf:
-
-
-wired up:
+- esp-idf: branch `release/v4.2` , commitId `cd4fa46f5372a552a67452313d246d4d09d2b39f`
+- build ways: Windows10 CMake
+- origin dev by: https://github.com/hamsternz/thingspeak-esp32-dht11
 =========
+## ESP32 C SDK 驱动 DHT11 获取温湿度
 
 ```
 DHT11      ESP32
 VCC   ---> VIN
-DATA  ---> D4
+DATA  ---> GPIO4
 GND   ---> GND
 ```
 
 DHT11 with input 3~5.5v
-
-origin dev by samrjohnston
-https://github.com/samrjohnston/ESP32Projects
-
-but his project is full of mistake;
 
 Output:
 =======

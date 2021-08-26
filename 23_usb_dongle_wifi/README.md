@@ -33,12 +33,13 @@ ESP BOARD          USB CONNECTOR (type A)
 
 ### 编译代码
 
-1. 确认 ESP-IDF 环境成功搭建
+1. 确认 ESP-IDF 环境成功搭建，使用 `master` 分支
 2. 添加 ESP-IDF 环境变量，Linux 方法如下，其它平台请查阅 [Set up the environment variables](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html#step-4-set-up-the-environment-variables)
     ```
     . $HOME/esp/esp-idf/export.sh
     ```
-3. 设置编译目标为 `esp32s2` 或 `esp32s3`
+3. 下载源码：[https://github.com/xuhongv/StudyInEsp32/tree/master/23_usb_dongle_wifii](https://github.com/xuhongv/StudyInEsp32/tree/master/23_usb_dongle_wifi)
+4. 设置编译目标为 `esp32s2` 或 `esp32s3`
     ```
     idf.py set-target esp32s2
     ```

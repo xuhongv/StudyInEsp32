@@ -77,7 +77,7 @@
 # <span id = "ready">二、 准备工作
 ### 源码下载
 
-模组代码：https://github.com/xuhongv/StudyInEsp32/24_esp32s2_s3_camera_wechat_mini
+模组代码：https://github.com/xuhongv/StudyInEsp32/tree/master/24_esp32s2_s3_camera_wechat_mini
 
 微信小程序代码：https://github.com/xuhongv/RemoteWeChatForESP
 

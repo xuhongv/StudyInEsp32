@@ -1,0 +1,64 @@
+menu "My_FLash_W25QXX Configuration"
+
+    choice BRAND_FLASH
+        prompt "brand 品牌选择"
+        default BRAND_FLASH_OTHER
+        help
+            select your flash brand
+    config BRAND_FLASH_OTHER
+        bool "other 通用品牌"
+    config ESP_CUSTOM_BOARD_WINBOND
+        bool "WinBond 华邦"
+    endchoice
+
+	
+	config MISO_GPIO
+		int "MISO GPIO number"
+		range 0 46
+		default 19 if IDF_TARGET_ESP32
+		default 33 if IDF_TARGET_ESP32S2
+		default 18 if IDF_TARGET_ESP32C3
+		help
+			GPIO number (IOxx) to SPI MISO.
+			Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to MISO.
+			On the ESP32, GPIOs 35-39 are input-only so cannot be used as outputs.
+			On the ESP32-S2, GPIO 46 is input-only so cannot be used as outputs.
+
+	config MOSI_GPIO
+		int "MOSI GPIO number"
+		range 0 46
+		default 23 if IDF_TARGET_ESP32
+		default 35 if IDF_TARGET_ESP32S2
+		default 19 if IDF_TARGET_ESP32C3
+		help
+			GPIO number (IOxx) to SPI MOSI.
+			Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to MOSI.
+			On the ESP32, GPIOs 35-39 are input-only so cannot be used as outputs.
+			On the ESP32-S2, GPIO 46 is input-only so cannot be used as outputs.
+
+	config SCLK_GPIO
+		int "SCLK GPIO number"
+		range 0 46
+		default 18 if IDF_TARGET_ESP32
+		default 36 if IDF_TARGET_ESP32S2
+		default 10 if IDF_TARGET_ESP32C3
+		help
+			GPIO number (IOxx) to SPI SCLK.
+			Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to SCLK.
+			On the ESP32, GPIOs 35-39 are input-only so cannot be used as outputs.
+			On the ESP32-S2, GPIO 46 is input-only so cannot be used as outputs.
+
+	config CS_GPIO
+		int "CS GPIO number"
+		range 0 46
+		default 5 if IDF_TARGET_ESP32
+		default 34 if IDF_TARGET_ESP32S2
+		default 9  if IDF_TARGET_ESP32C3
+		help
+			GPIO number (IOxx) to SPI CS.
+			Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to CS.
+			On the ESP32, GPIOs 35-39 are input-only so cannot be used as outputs.
+			On the ESP32-S2, GPIO 46 is input-only so cannot be used as outputs.
+    
+
+endmenu

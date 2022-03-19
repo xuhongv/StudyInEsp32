@@ -1,0 +1,6 @@
+
+COMPONENT_SRCDIRS := src
+
+COMPONENT_ADD_INCLUDEDIRS := include
+
+COMPONENT_EMBED_TXTFILES := cert/server_root_cert.pem
